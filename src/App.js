@@ -7,7 +7,7 @@ import { useMovies } from "./useMovies";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "f84fc31d";
+const KEY = "479d2bdd";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -123,7 +123,7 @@ function Search({ query, setQuery }) {
   );
 }
 
-function NumResults({ movies }) {
+function NumResults({ movies = [] }) {
   return (
     <p className="num-results">
       Found <strong>{movies.length}</strong> results
@@ -255,7 +255,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       year,
       poster,
       imdbRating: Number(imdbRating),
-      runtime: Number(runtime.split(" ").at(0)),
+      runtime: Number(runtime.split("").at(0)),
       userRating,
       countRatingDecisions: countRef.current,
     };
